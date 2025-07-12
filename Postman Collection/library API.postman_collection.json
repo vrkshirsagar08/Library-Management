@@ -1,0 +1,130 @@
+{
+	"info": {
+		"_postman_id": "2055443e-112a-4804-b929-3db2a1c4e6c5",
+		"name": "library API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "35284851"
+	},
+	"item": [
+		{
+			"name": "get book by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/books/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"books",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all books",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/books",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"books"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete book by id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/books/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"books",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"Chava\",\r\n  \"author\": \"XYZ\",\r\n  \"isbn\": \"9780134685991\",\r\n  \"available\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/books",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"books"
+					]
+				},
+				"description": "## Add a New Book\n\nThis endpoint allows users to add a new book to the library database. It accepts a JSON payload containing details about the book.\n\n### Request\n\n**Method:** POST  \n**URL:** `http://localhost:8080/api/books`\n\n**Request Body (JSON):**\n\n``` json\n{\n  \"title\": \"string\",\n  \"author\": \"string\",\n  \"isbn\": \"string\",\n  \"available\": \"boolean\"\n}\n\n ```\n\n#### Parameters:\n\n- `title` (string): The title of the book being added.\n    \n- `author` (string): The name of the author of the book.\n    \n- `isbn` (string): The International Standard Book Number for the book, used for unique identification.\n    \n- `available` (boolean): Indicates whether the book is available for borrowing.\n    \n\n### Response\n\nUpon successful addition of the book, the server will respond with a confirmation message and the details of the newly created book entry, typically including the same parameters provided in the request.\n\n### Notes\n\n- Ensure that the `isbn` is unique to avoid conflicts with existing entries.\n    \n- The `available` parameter should be set to `true` or `false` based on the book's availability status.\n    \n- Proper error handling for invalid inputs or duplicate entries should be implemented on the client-side.\n    \n\nThis endpoint is essential for maintaining the library's collection and ensuring that users can access the latest additions."
+			},
+			"response": []
+		},
+		{
+			"name": "update availability",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/books/availability/3?available=false",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"books",
+						"availability",
+						"3"
+					],
+					"query": [
+						{
+							"key": "available",
+							"value": "false"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
